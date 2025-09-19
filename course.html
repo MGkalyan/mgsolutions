@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MG Solutions - Courses</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f9;
+      color: #333;
+    }
+    header {
+      background: #222;
+      color: #fff;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav a {
+      margin: 0 10px;
+      color: #fff;
+      text-decoration: none;
+    }
+    .section {
+      padding: 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .courses-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+    .course-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+    .course-card:hover {
+      transform: translateY(-5px);
+    }
+    .course-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .course-info {
+      padding: 20px;
+    }
+    .course-info h3 {
+      margin: 0 0 10px;
+    }
+    .pay-btn {
+    display: inline-block;
+    padding: 12px 28px;           /* Bigger padding for a premium look */
+    margin-top: 12px;
+    background: linear-gradient(135deg, #004aad, #00a1ff); /* Elegant gradient */
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;           /* Slightly rounded edges */
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Soft shadow */
+    transition: all 0.3s ease;
+}
+
+.pay-btn:hover {
+    background: linear-gradient(135deg, #003080, #007acc); /* Hover gradient */
+    transform: translateY(-3px); /* Slight lift on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+    .details {
+      display: none;
+      margin-top: 15px;
+      padding: 15px;
+      background: #f9f9f9;
+      border-left: 4px solid #007bff;
+      border-radius: 6px;
+    }
+    .price {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    footer {
+      background: #222;
+      color: #ccc;
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <h1>MG Solutions</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="courses.html">Courses</a>
+    </nav>
+  </header>
+
+  <section class="section">
+    <h2>Our Courses</h2>
+    <div class="courses-container">
+
+      <!-- Python Programming -->
+      <div class="course-card">
+        <img src="images/pythonprogam.webp" alt="Python">
+        <div class="course-info">
+          <h3>Python Programming</h3>
+          <button class="pay-btn" onclick="toggleDetails(this)">View Details</button>
+          <div class="details">
+            <p><b>Outcomes:</b> Master Python basics, OOP, data handling & automation.</p>
+            <p><b>Syllabus (8 Weeks):</b><br>
+              Week 1-2: Python Basics<br>
+              Week 3: Functions & OOP<br>
+              Week 4: File Handling<br>
+              Week 5: Libraries (NumPy, Pandas)<br>
+              Week 6: Data Visualization<br>
+              Week 7: Mini Project<br>
+              Week 8: Final Project
+            </p>
+            <p><b>Opportunities:</b> Python Developer, Data Analyst, Automation Engineer.</p>
+            <p class="price">Price: ₹399</p>
+            <a href="#" class="pay-btn">Pay Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Java Full Stack -->
+      <div class="course-card">
+        <img src="images/javaprogram.jpg" alt="Java">
+        <div class="course-info">
+          <h3>Java Full Stack</h3>
+          <button class="pay-btn" onclick="toggleDetails(this)">View Details</button>
+          <div class="details">
+            <p><b>Outcomes:</b> Build scalable apps using Java, Spring Boot, React & MySQL.</p>
+            <p><b>Syllabus (8 Weeks):</b><br>
+              Week 1: Java Basics<br>
+              Week 2: Advanced Java (OOP, Collections)<br>
+              Week 3: Spring Boot<br>
+              Week 4: REST APIs<br>
+              Week 5: MySQL Database<br>
+              Week 6: React Basics<br>
+              Week 7: Integration<br>
+              Week 8: Full Project
+            </p>
+            <p><b>Opportunities:</b> Full Stack Developer, Backend Engineer.</p>
+            <p class="price">Price: ₹699</p>
+            <a href="#" class="pay-btn">Pay Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Web Development -->
+      <div class="course-card">
+        <img src="images/webapp.jpeg" alt="Web Development">
+        <div class="course-info">
+          <h3>Web Development</h3>
+          <button class="pay-btn" onclick="toggleDetails(this)">View Details</button>
+          <div class="details">
+            <p><b>Outcomes:</b> Create responsive websites using HTML, CSS, JS & Node.js.</p>
+            <p><b>Syllabus (8 Weeks):</b><br>
+              Week 1: HTML Basics<br>
+              Week 2: CSS Styling<br>
+              Week 3: JavaScript Essentials<br>
+              Week 4: DOM Manipulation<br>
+              Week 5: Responsive Design<br>
+              Week 6: Node.js Basics<br>
+              Week 7: Express.js<br>
+              Week 8: Final Project
+            </p>
+            <p><b>Opportunities:</b> Web Developer, Frontend Engineer.</p>
+            <p class="price">Price: ₹699</p>
+            <a href="#" class="pay-btn">Pay Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data Science -->
+      <div class="course-card">
+        <img src="images/datascience.jpg" alt="Data Science">
+        <div class="course-info">
+          <h3>Data Science</h3>
+          <button class="pay-btn" onclick="toggleDetails(this)">View Details</button>
+          <div class="details">
+            <p><b>Outcomes:</b> Learn data analysis, ML basics, visualization, and AI tools.</p>
+            <p><b>Syllabus (8 Weeks):</b><br>
+              Week 1-2: Python for Data Science<br>
+              Week 3: Data Cleaning<br>
+              Week 4: Data Visualization<br>
+              Week 5: Statistics<br>
+              Week 6: Machine Learning Basics<br>
+              Week 7: Real-Life Case Studies<br>
+              Week 8: Final Project
+            </p>
+            <p><b>Opportunities:</b> Data Scientist, ML Engineer, Business Analyst.</p>
+            <p class="price">Price: ₹999</p>
+            <a href="#" class="pay-btn">Pay Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI & ML -->
+      <div class="course-card">
+        <img src="images/aiml.webp" alt="AI ML">
+        <div class="course-info">
+          <h3>Artificial Intelligence & Machine Learning</h3>
+          <button class="pay-btn" onclick="toggleDetails(this)">View Details</button>
+          <div class="details">
+            <p><b>Outcomes:</b> Build intelligent systems using ML algorithms & AI frameworks.</p>
+            <p><b>Syllabus (8 Weeks):</b><br>
+              Week 1: Python for ML<br>
+              Week 2: Linear/Logistic Regression<br>
+              Week 3: Classification Algorithms<br>
+              Week 4: Neural Networks<br>
+              Week 5: Deep Learning (Keras, TensorFlow)<br>
+              Week 6: NLP Basics<br>
+              Week 7: AI Applications<br>
+              Week 8: Capstone Project
+            </p>
+            <p><b>Opportunities:</b> AI Engineer, ML Engineer, Researcher.</p>
+            <p class="price">Price: ₹1499</p>
+            <a href="#" class="pay-btn">Pay Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cybersecurity -->
+      <div class="course-card">
+        <img src="images/cyber-security.jpeg" alt="Cybersecurity">
+        <div class="course-info">
+          <h3>Cybersecurity</h3>
+          <button class="pay-btn" onclick="toggleDetails(this)">View Details</button>
+          <div class="details">
+            <p><b>Outcomes:</b> Secure networks, detect vulnerabilities, and prevent attacks.</p>
+            <p><b>Syllabus (8 Weeks):</b><br>
+              Week 1: Basics of Cybersecurity<br>
+              Week 2: Networking Fundamentals<br>
+              Week 3: Encryption<br>
+              Week 4: Firewalls & IDS<br>
+              Week 5: Ethical Hacking<br>
+              Week 6: Cloud Security<br>
+              Week 7: Case Studies<br>
+              Week 8: Final Project
+            </p>
+            <p><b>Opportunities:</b> Cybersecurity Analyst, Ethical Hacker, Security Engineer.</p>
+            <p class="price">Price: ₹7999</p>
+            <a href="#" class="pay-btn">Pay Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- UI/UX Design -->
+      <div class="course-card">
+        <img src="images/uiux.png" alt="UI/UX Design">
+        <div class="course-info">
+          <h3>UI/UX Design</h3>
+          <button class="pay-btn" onclick="toggleDetails(this)">View Details</button>
+          <div class="details">
+            <p><b>Outcomes:</b> Learn wireframing, prototyping, and designing user-friendly apps.</p>
+            <p><b>Syllabus (8 Weeks):</b><br>
+              Week 1: Design Principles<br>
+              Week 2: Wireframing<br>
+              Week 3: Prototyping<br>
+              Week 4: User Research<br>
+              Week 5: Figma/Adobe XD<br>
+              Week 6: Mobile Design<br>
+              Week 7: Usability Testing<br>
+              Week 8: Final Portfolio Project
+            </p>
+            <p><b>Opportunities:</b> UI/UX Designer, Product Designer, Interaction Designer.</p>
+            <p class="price">Price: ₹1299</p>
+            <a href="#" class="pay-btn">Pay Now</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 MG Solutions. All rights reserved.
+  </footer>
+
+  <script>
+    function toggleDetails(button) {
+      const detailsDiv = button.nextElementSibling;
+      if (detailsDiv.style.display === "block") {
+        detailsDiv.style.display = "none";
+      } else {
+        detailsDiv.style.display = "block";
+      }
+    }
+  </script>
+</body>
+</html>
