@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MG Solutions - Professional Course Catalog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght=400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6.4.0 is already loaded, supporting modern icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <style>
+        :root {
+            --color-primary-navy: #1f2937;
+            --color-accent-blue: #1d4ed8;
+            --color-light-gray: #f9fafb;
+            --color-dark-gray: #4b5563;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--color-light-gray);
+            color: var(--color-primary-navy);
+            /* Tailwind antialiasing class applied in @apply block below */
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .course-topics {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+        .course-topics.open {
+            max-height: 500px; /* Sufficient height for smooth transition */
+            padding-bottom: 0.5rem;
+        }
+        .rotate-90 {
+            transform: rotate(90deg);
+        }
+
+        .card-bg-gradient {
+            background-image: linear-gradient(135deg, #ffffff 0%, #f3f4f6 100%);
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-navy': '#1f2937',
+                        'accent-blue': '#1d4ed8',
+                        'light-gray': '#f9fafb',
+                        'medium-gray': '#e5e7eb',
+                        'dark-gray': '#4b5563',
+                    },
+                    fontFamily: {
+                        sans: ['Open Sans', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        '4xl': '2rem',
+                    },
+                    boxShadow: {
+                        'card': '0 10px 30px -5px rgba(0, 0, 0, 0.08), 0 4px 10px -2px rgba(0, 0, 0, 0.03)',
+                        'card-hover': '0 15px 40px -8px rgba(0, 0, 0, 0.1), 0 8px 20px -4px rgba(0, 0, 0, 0.05)',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-light-gray antialiased">
+
+<header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            <!-- Logo and Title -->
+            <div class="flex items-center space-x-3 min-w-0">
+                <img src="https://placehold.co/40x40/1d4ed8/ffffff?text=MG" alt="MG Solutions Logo" class="h-10 w-10 rounded-xl shadow-md border-2 border-accent-blue" />
+                <h1 class="text-2xl font-heading font-extrabold text-primary-navy tracking-wide truncate">MG Solutions</h1>
+            </div>
+            <!-- Navigation/Login -->
+            <div class="flex items-center space-x-4">
+                <a href="index.html" class="text-dark-gray hover:text-accent-blue transition duration-200 font-medium px-3 py-2 rounded-lg text-sm sm:text-base flex items-center">
+                    <i class="fas fa-home mr-1"></i> Home
+                </a>
+                <a href="https://mgsolutions-ten.vercel.app/" class="text-dark-gray hover:text-accent-blue transition duration-200 p-2 rounded-full hover:bg-gray-100" aria-label="Login">
+                    <i class="fas fa-user text-xl"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="max-w-7xl mx-auto mt-8 md:mt-12 px-4 sm:px-6">
+    <!-- Header Section -->
+    <div class="text-center mb-8 sm:mb-12">
+        <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-primary-navy leading-tight mb-3">
+            Professional Course Catalog
+        </h2>
+        <p class="text-base sm:text-lg text-dark-gray max-w-2xl mx-auto">
+            Discover our industry-aligned training across a wide range of in-demand technologies.
+        </p>
+    </div>
+
+    <!-- Course Grid - Now has 7 courses across 3 columns -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+        <!-- Course 1: HTML Fundamentals (New separation) -->
+        <div class="course bg-white rounded-2xl shadow-card hover:shadow-card-hover transform hover:-translate-y-1 transition-all duration-300 overflow-hidden card-bg-gradient">
+            <div class="p-3">
+                <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="HTML Fundamentals Course Image" class="w-full h-24 sm:h-28 object-cover rounded-xl mb-3 border border-medium-gray" onerror="this.src='https://placehold.co/800x120/1d4ed8/ffffff?text=HTML'" />
+                <h3 class="text-base font-heading font-bold text-primary-navy mb-1 flex items-center">
+                    <i class="fas fa-file-code mr-2 text-accent-blue text-sm"></i> HTML Fundamentals
+                </h3>
+                <p class="text-dark-gray mb-3 text-xs leading-tight">Learn the essential structure and semantic tags of the web.</p>
+                <div class="flex flex-col space-y-2">
+                    <button class="enroll-btn w-full inline-flex items-center justify-center px-3 py-1.5 text-xs font-semibold rounded-full text-white bg-accent-blue hover:bg-blue-700 transition duration-300 shadow-md">
+                        <i class="fas fa-arrow-right mr-1"></i> Enroll Now
+                    </button>
+                    <!-- Payment Link - DO NOT CHANGE -->
+                    <a href="https://rzp.io/rzp/VzOzgeE" class="pay-now-btn hidden w-full inline-flex items-center justify-center px-3 py-1.5 text-xs font-semibold rounded-full text-white bg-green-600 hover:bg-green-700 transition duration-300 shadow-md">
+                        <i class="fas fa-money-bill-wave mr-1"></i> Pay Now
+                    </a>
+                </div>
+            </div>
+            <!-- Accordion Header -->
+            <div class="course-header flex justify-between items-center px-3 py-2 cursor-pointer bg-gray-100 text-xs font-semibold hover:bg-gray-200 transition duration-300 border-t border-gray-200" role="button" aria-expanded="false" aria-controls="topics-html">
+                <span class="flex items-center text-dark-gray">
+                    <i class="fas fa-list-ul mr-2 text-accent-blue"></i> Syllabus
+                </span>
+                <i class="fas fa-chevron-right text-xs transition-transform duration-300 accordion-icon text-accent-blue"></i>
+            </div>
+            <!-- Accordion Content -->
+            <div id="topics-html" class="course-topics bg-white px-3" aria-hidden="true">
+                <ul class="space-y-1 list-none m-0 p-0">
+                    <li class="p-2 border-l-2 border-accent-blue bg-gray-50 rounded-lg shadow-sm text-xs"><a href="#" class="font-medium text-dark-gray hover:text-accent-blue transition">Module 1: Semantic HTML5</a></li>
+                    <li class="p-2 border-l-2 border-accent-blue bg-gray-50 rounded-lg shadow-sm text-xs"><a href="#" class="font-medium text-dark-gray hover:text-accent-blue transition">Module 2: Forms and Accessibility</a></li>
+                    <li class="p-2 border-l-2 border-accent-blue bg-gray-50 rounded-lg shadow-sm text-xs"><a href="#" class="font-medium text-dark-gray hover:text-accent-blue transition">Module 3: Media and iFrames</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Course 2: CSS Layout & Design (New separation) -->
+        <div class="course bg-white rounded-2xl shadow-card hover:shadow-card-hover transform hover:-translate-y-1 transition-all duration-300 overflow-hidden card-bg-gradient">
+            <div class="p-3">
+                <img src="https://images.unsplash.com/photo-1547942702-8a9d1d11942d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="CSS Layout Course Image" class="w-full h-24 sm:h-28 object-cover rounded-xl mb-3 border border-medium-gray" onerror="this.src='https://placehold.co/800x120/3b82f6/ffffff?text=CSS+Design'" />
+                <h3 class="text-base font-heading font-bold text-primary-navy mb-1 flex items-center">
+                    <i class="fab fa-css3-alt mr-2 text-accent-blue text-sm"></i> CSS Layout & Design
+                </h3>
+                <p class="text-dark-gray mb-3 text-xs leading-tight">Master responsive design using Flexbox and Grid.</p>
+                <div class="flex flex-col space-y-2">
+                    <button class="enroll-btn w-full inline-flex items-center justify-center px-3 py-1.5 text-xs font-semibold rounded-full text-white bg-accent-blue hover:bg-blue-700 transition duration-300 shadow-md">
+                        <i class="fas fa-arrow-right mr-1"></i> Enroll Now
+                    </button>
+                    <!-- Payment Link - DO NOT CHANGE -->
+                    <a href="https://rzp.io/rzp/VzOzgeE" class="pay-now-btn hidden w-full inline-flex items-center justify-center px-3 py-1.5 text-xs font-semibold rounded-full text-white bg-green-600 hover:bg-green-700 transition duration-300 shadow-md">
+                        <i class="fas fa-money-bill-wave mr-1"></i> Pay Now
+                    </a>
+                </div>
+            </div>
+            <!-- Accordion Header -->
+            <div class="course-header flex justify-between items-center px-3 py-2 cursor-pointer bg-gray-100 text-xs font-semibold hover:bg-gray-200 transition duration-300 border-t border-gray-200" role="button" aria-expanded="false" aria-controls="topics-css">
+                <span class="flex items-center text-dark-gray">
+                    <i class="fas fa-list-ul mr-2 text-accent-blue"></i> Syllabus
+                </span>
+                <i class="fas fa-chevron-right text-xs transition-transform duration-300 accordion-icon text-accent-blue"></i>
+            </div>
+            <!-- Accordion Content -->
+            <div id="topics-css" class="course-topics bg-white px-3" aria-hidden="true">
+                <ul class="space-y-1 list-none m-0 p-0">
+                    <li class="p-2 border-l-2 border-accent-blue bg-gray-50 rounded-lg shadow-sm text-xs"><a href="#" class="font-medium text-dark-gray hover:text-accent-blue transition">Module 1: CSS Selectors and Specificity</a></li>
+                    <li class="p-2 border-l-2 border-accent-blue bg-gray-50 rounded-lg shadow-sm text-xs"><a href="#" class="font-medium text-dark-gray hover:text-accent-blue transition">Module 2: Flexbox and Grid Layouts</a></li>
+                    <li class="p-2 border-l-2 border-accent-blue bg-gray-50 rounded-lg shadow-sm text-xs"><a href="#" class="font-medium text-dark-gray hover:text-accent-blue transition">Module 3: Responsive Design & Media Queries</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Course 3: JavaScript -->
+        <div class="course bg-white rounded-2xl shadow-card hover:shadow-card-hover transform hover:-translate-y-1 transition-all duration-300 overflow-hidden card-bg-gradient">
+            <div class="p-3">
+                <img src="https://images.unsplash.com/photo-1627398224578-f58c7e96395b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="JavaScript Course Image" class="w-full h-24 sm:h-28 object-cover rounded-xl mb-3 border border-medium-gray" onerror="this.src='https://placehold.co/800x120/facc15/1f2937?text=JavaScript'" />
+                <h3 class="text-base font-heading font-bold text-primary-navy mb-1 flex items-center">
+                    <i class="fab fa-js-square mr-2 text-accent-blue text-sm"></i> Advanced JavaScript
+                </h3>
+                <p class="text-dark-gray mb-3 text-xs leading-tight">Build interactive web experiences with modern ES6+ features.</p>
+                <div class="flex flex-col space-y-2">
+                    <button class="enroll-btn w-full inline-flex items-center justify-center px-3 py-1.5 text-xs font-semibold rounded-full text-white bg-accent-blue hover:bg-blue-700 transition duration-300 shadow-md">
+                        <i class="fas fa-arrow-right mr-1"></i> Enroll Now
+                    </button>
+                    <!-- Payment Link - DO NOT CHANGE -->
+                    <a href="https://rzp.io/rzp/VzOzgeE" class="pay-now-btn hidden w-full inline-flex items-center justify-center px-3 py-1.5 text-xs font-semibold rounded-full text-white bg-green-600 hover:bg-green-700 transition duration-300 shadow-md">
+                        <i class="fas fa-money-bill-wave mr-1"></i> Pay Now
+                    </a>
+                </div>
+            </div>
+            <!-- Accordion Header -->
+            <div class="course-header flex justify-between items-center px-3 py-2 cursor-pointer bg-gray-100 text-xs font-semibold hover:bg-gray-200 transition duration-300 border-t border-gray-200" role="button" aria-expanded="false" aria-controls="topics-javascript">
+                <span class="flex items-center text-dark-gray">
+                    <i class="fas fa-list-ul mr-2 text-accent-blue"></i> Syllabus
+                </span>
+                <i class="fas fa-chevron-right text-xs transition-transform duration-300 accordion-icon text-accent-blue"></i>
+            </div>
+            <!-- Accordion Content -->
+            <div id="topics-javascript" class="course-topics bg-white px-3" aria-hidden="true">
+                <ul class="space-y-1 list-none m-0 p-0">
+                    <li class="p-2 border-l-2 border-accent-blue bg-gray-50 rounded-lg shadow-sm text-xs"><a href="#" class="font-medium text-dark-gray hover:text-accent-blue transition">Module 1: DOM Manipulation</a></li>
+                    <li class="p-2 border-l-2 border-accent-blue bg-gray-50 rounded-lg shadow-sm text-xs"><a href="#" class="font-medium text-dark-gray hover:text-accent-blue transition">Module 2: Async JavaScript (Promises, Await)</a></li>
+                    <li class="p-2 border-l-2 border-accent-blue bg-gray-50 rounded-lg shadow-sm text-xs"><a href="#" class="font-medium text-dark-gray hover:text-accent-blue transition">Module 3: ES6+ Features and API Calls</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Course 4: Figma UI/UX -->
+        <div class="course bg-white rounded-2xl shadow-card hover:shadow-card-hover transform hover:-translate-y-1 transition-all duration-300 overflow-hidden card-bg-gradient">
+            <div class="p-3">
+                <img src="https://images.unsplash.com/photo-1610469147514-d8354c03d360?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Figma Course Image" class="w-full h-24 sm:h-28 object-cover rounded-xl mb-3 border border-medium-gray" onerror="this.src='https://placehold.co/800x120/a855f7/ffffff?text=Figma'" />
+                <h3 class="text-base font-heading font-bold text-primary-navy mb-1 flex items-center">
+                    <i class="fas fa-pencil-ruler mr-2 text-accent-blue text-sm"></i> Figma UI/UX Essentials
+                </h3>
+                <p class="text-dark-gray mb-3 text-xs leading-tight">Create stunning interfaces and interactive prototypes.</p>
+                <div class="flex flex-col space-y-2">
+                    <button class="enroll-btn w-full inline-flex items-center justify-center px-3 py-1.5 text-xs font-semibold rounded-full text-white bg-accent-blue hover:bg-blue-700 transition duration-300 shadow-md">
+                        <i class="fas fa-arrow-right mr-1"></i> Enroll Now
+                    </button>
+                    <!-- Payment Link - DO NOT CHANGE -->
+                    <a href="https://rzp.io/rzp/VzOzgeE" class="pay-now-btn hidden w-full inline-flex items-center justify-center px-3 py-1.5 text-xs font-semibold rounded-full text-white bg-green-600 hover:bg-green-700 transition duration-300 shadow-md">
+                        <i class="fas fa-money-bill-wave mr-1"></i> Pay Now
+                    </a>
+                </div>
+            </div>
+            <!-- Accordion Header -->
+            <div class="course-header flex justify-between items-center px-3 py-2 cursor-pointer bg-gray-100 text-xs font-semibold hover:bg-gray-200 transition duration-300 border-t border-gray-200" role="button" aria-expanded="false" aria-controls="topics-figma">
+                <span class="flex items-center text-dark-gray">
+                    <i class="fas fa-list-ul mr-2 text-accent-blue"></i> Syllabus
+                </span>
+                <i class="fas fa-chevron-right text-xs transition-transform duration-300 accordion-icon text-accent-blue"></i>
+            </div>
+            <!-- Accordion Content -->
+            <div id="topics-figma" class="course-topics bg-white px-3" aria-hidden="true">
+                <ul class="space-y-1 list-none m-0 p-0">
+                    <li class="p-2 border-l-2 border-accent-blue bg-gray-50 rounded-lg shadow-sm text-xs"><a href="#" class="font-medium text-dark-gray hover:text-accent-blue transition">Module 1: Wireframing and Low Fidelity</a></li>
+                    <li class="p-2 border-l-2 border-accent-blue bg-gray-50 rounded-lg shadow-sm text-xs"><a href="#" class="font-medium text-dark-gray hover:text-accent-blue transition">Module 2: Auto Layout and Components</a></li>
+                    <li class="p-2 border-l-2 border-accent-blue bg-gray-50 rounded-lg shadow-sm text-xs"><a href="#" class="font-medium text-dark-gray hover:text-accent-blue transition">Module 3: Prototyping and Handoff</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Course 5: Python for Data Science -->
+        <div class="course bg-white rounded-2xl shadow-card hover:shadow-card-hover transform hover:-translate-y-1 transition-all duration-300 overflow-hidden card-bg-gradient">
+            <div class="p-3">
+                <img src="https://images.unsplash.com/photo-1551288258-c8cb5a3d7067?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Python for Data Science Course Image" class="w-full h-24 sm:h-28 object-cover rounded-xl mb-3 border border-medium-gray" onerror="this.src='https://placehold.co/800x120/4ade80/1f2937?text=Data+Science'" />
+                <h3 class="text-base font-heading font-bold text-primary-navy mb-1 flex items-center">
+                    <i class="fab fa-python mr-2 text-accent-blue text-sm"></i> Python Programming
+                </h3>
+                <p class="text-dark-gray mb-3 text-xs leading-tight">Master Python for data analysis and core programming.</p>
+                <div class="flex flex-col space-y-2">
+                    <button class="enroll-btn w-full inline-flex items-center justify-center px-3 py-1.5 text-xs font-semibold rounded-full text-white bg-accent-blue hover:bg-blue-700 transition duration-300 shadow-md">
+                        <i class="fas fa-arrow-right mr-1"></i> Enroll Now
+                    </button>
+                    <!-- Payment Link - DO NOT CHANGE -->
+                    <a href="https://rzp.io/rzp/VzOzgeE" class="pay-now-btn hidden w-full inline-flex items-center justify-center px-3 py-1.5 text-xs font-semibold rounded-full text-white bg-green-600 hover:bg-green-700 transition duration-300 shadow-md">
+                        <i class="fas fa-money-bill-wave mr-1"></i> Pay Now
+                    </a>
+                </div>
+            </div>
+            <!-- Accordion Header -->
+            <div class="course-header flex justify-between items-center px-3 py-2 cursor-pointer bg-gray-100 text-xs font-semibold hover:bg-gray-200 transition duration-300 border-t border-gray-200" role="button" aria-expanded="false" aria-controls="topics-python">
+                <span class="flex items-center text-dark-gray">
+                    <i class="fas fa-list-ul mr-2 text-accent-blue"></i> Syllabus
+                </span>
+                <i class="fas fa-chevron-right text-xs transition-transform duration-300 accordion-icon text-accent-blue"></i>
+            </div>
+            <!-- Accordion Content -->
+            <div id="topics-python" class="course-topics bg-white px-3" aria-hidden="true">
+                <ul class="space-y-1 list-none m-0 p-0">
+                    <li class="p-2 border-l-2 border-accent-blue bg-gray-50 rounded-lg shadow-sm text-xs"><a href="#" class="font-medium text-dark-gray hover:text-accent-blue transition">Module 1: Python Fundamentals & OOP</a></li>
+                    <li class="p-2 border-l-2 border-accent-blue bg-gray-50 rounded-lg shadow-sm text-xs"><a href="#" class="font-medium text-dark-gray hover:text-accent-blue transition">Module 2: NumPy and Pandas Data Wrangling</a></li>
+                    <li class="p-2 border-l-2 border-accent-blue bg-gray-50 rounded-lg shadow-sm text-xs"><a href="#" class="font-medium text-dark-gray hover:text-accent-blue transition">Module 3: Introduction to Scikit-learn</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Course 6: SQL -->
+        <div class="course bg-white rounded-2xl shadow-card hover:shadow-card-hover transform hover:-translate-y-1 transition-all duration-300 overflow-hidden card-bg-gradient">
+            <div class="p-3">
+                <img src="https://images.unsplash.com/photo-1593510522102-18c991a0c0a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="SQL Course Image" class="w-full h-24 sm:h-28 object-cover rounded-xl mb-3 border border-medium-gray" onerror="this.src='https://placehold.co/800x120/2563eb/ffffff?text=SQL+Database'" />
+                <h3 class="text-base font-heading font-bold text-primary-navy mb-1 flex items-center">
+                    <i class="fas fa-database mr-2 text-accent-blue text-sm"></i> SQL Database Development
+                </h3>
+                <p class="text-dark-gray mb-3 text-xs leading-tight">Learn advanced querying, database design, and optimization.</p>
+                <div class="flex flex-col space-y-2">
+                    <button class="enroll-btn w-full inline-flex items-center justify-center px-3 py-1.5 text-xs font-semibold rounded-full text-white bg-accent-blue hover:bg-blue-700 transition duration-300 shadow-md">
+                        <i class="fas fa-arrow-right mr-1"></i> Enroll Now
+                    </button>
+                    <!-- Payment Link - DO NOT CHANGE -->
+                    <a href="https://rzp.io/rzp/VzOzgeE" class="pay-now-btn hidden w-full inline-flex items-center justify-center px-3 py-1.5 text-xs font-semibold rounded-full text-white bg-green-600 hover:bg-green-700 transition duration-300 shadow-md">
+                        <i class="fas fa-money-bill-wave mr-1"></i> Pay Now
+                    </a>
+                </div>
+            </div>
+            <!-- Accordion Header -->
+            <div class="course-header flex justify-between items-center px-3 py-2 cursor-pointer bg-gray-100 text-xs font-semibold hover:bg-gray-200 transition duration-300 border-t border-gray-200" role="button" aria-expanded="false" aria-controls="topics-sql">
+                <span class="flex items-center text-dark-gray">
+                    <i class="fas fa-list-ul mr-2 text-accent-blue"></i> Syllabus
+                </span>
+                <i class="fas fa-chevron-right text-xs transition-transform duration-300 accordion-icon text-accent-blue"></i>
+            </div>
+            <!-- Accordion Content -->
+            <div id="topics-sql" class="course-topics bg-white px-3" aria-hidden="true">
+                <ul class="space-y-1 list-none m-0 p-0">
+                    <li class="p-2 border-l-2 border-accent-blue bg-gray-50 rounded-lg shadow-sm text-xs"><a href="#" class="font-medium text-dark-gray hover:text-accent-blue transition">Module 1: Basic Queries and Joins</a></li>
+                    <li class="p-2 border-l-2 border-accent-blue bg-gray-50 rounded-lg shadow-sm text-xs"><a href="#" class="font-medium text-dark-gray hover:text-accent-blue transition">Module 2: Database Normalization</a></li>
+                    <li class="p-2 border-l-2 border-accent-blue bg-gray-50 rounded-lg shadow-sm text-xs"><a href="#" class="font-medium text-dark-gray hover:text-accent-blue transition">Module 3: Stored Procedures and Views</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Course 7: Core Java -->
+        <div class="course bg-white rounded-2xl shadow-card hover:shadow-card-hover transform hover:-translate-y-1 transition-all duration-300 overflow-hidden card-bg-gradient">
+            <div class="p-3">
+                <img src="https://images.unsplash.com/photo-1582234033069-7c8511e4f4ed?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Java Course Image" class="w-full h-24 sm:h-28 object-cover rounded-xl mb-3 border border-medium-gray" onerror="this.src='https://placehold.co/800x120/dc2626/ffffff?text=Core+Java'" />
+                <h3 class="text-base font-heading font-bold text-primary-navy mb-1 flex items-center">
+                    <i class="fab fa-java mr-2 text-accent-blue text-sm"></i> Core Java Programming
+                </h3>
+                <p class="text-dark-gray mb-3 text-xs leading-tight">Master OOP, data structures, and the Java ecosystem.</p>
+                <div class="flex flex-col space-y-2">
+                    <button class="enroll-btn w-full inline-flex items-center justify-center px-3 py-1.5 text-xs font-semibold rounded-full text-white bg-accent-blue hover:bg-blue-700 transition duration-300 shadow-md">
+                        <i class="fas fa-arrow-right mr-1"></i> Enroll Now
+                    </button>
+                    <!-- Payment Link - DO NOT CHANGE -->
+                    <a href="https://rzp.io/rzp/VzOzgeE" class="pay-now-btn hidden w-full inline-flex items-center justify-center px-3 py-1.5 text-xs font-semibold rounded-full text-white bg-green-600 hover:bg-green-700 transition duration-300 shadow-md">
+                        <i class="fas fa-money-bill-wave mr-1"></i> Pay Now
+                    </a>
+                </div>
+            </div>
+            <!-- Accordion Header -->
+            <div class="course-header flex justify-between items-center px-3 py-2 cursor-pointer bg-gray-100 text-xs font-semibold hover:bg-gray-200 transition duration-300 border-t border-gray-200" role="button" aria-expanded="false" aria-controls="topics-java">
+                <span class="flex items-center text-dark-gray">
+                    <i class="fas fa-list-ul mr-2 text-accent-blue"></i> Syllabus
+                </span>
+                <i class="fas fa-chevron-right text-xs transition-transform duration-300 accordion-icon text-accent-blue"></i>
+            </div>
+            <!-- Accordion Content -->
+            <div id="topics-java" class="course-topics bg-white px-3" aria-hidden="true">
+                <ul class="space-y-1 list-none m-0 p-0">
+                    <li class="p-2 border-l-2 border-accent-blue bg-gray-50 rounded-lg shadow-sm text-xs"><a href="#" class="font-medium text-dark-gray hover:text-accent-blue transition">Module 1: OOP Principles in Java</a></li>
+                    <li class="p-2 border-l-2 border-accent-blue bg-gray-50 rounded-lg shadow-sm text-xs"><a href="#" class="font-medium text-dark-gray hover:text-accent-blue transition">Module 2: Collections Framework</a></li>
+                    <li class="p-2 border-l-2 border-accent-blue bg-gray-50 rounded-lg shadow-sm text-xs"><a href="#" class="font-medium text-dark-gray hover:text-accent-blue transition">Module 3: Exception Handling</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Course 8: C / C++ Fundamentals -->
+        <div class="course bg-white rounded-2xl shadow-card hover:shadow-card-hover transform hover:-translate-y-1 transition-all duration-300 overflow-hidden card-bg-gradient">
+            <div class="p-3">
+                <img src="https://images.unsplash.com/photo-1628151532585-dfcc7d573e0a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="C/C++ Course Image" class="w-full h-24 sm:h-28 object-cover rounded-xl mb-3 border border-medium-gray" onerror="this.src='https://placehold.co/800x120/374151/ffffff?text=C+C++'" />
+                <h3 class="text-base font-heading font-bold text-primary-navy mb-1 flex items-center">
+                    <i class="fas fa-terminal mr-2 text-accent-blue text-sm"></i> C & C++ Fundamentals
+                </h3>
+                <p class="text-dark-gray mb-3 text-xs leading-tight">Dive into memory management and high-performance computing.</p>
+                <div class="flex flex-col space-y-2">
+                    <button class="enroll-btn w-full inline-flex items-center justify-center px-3 py-1.5 text-xs font-semibold rounded-full text-white bg-accent-blue hover:bg-blue-700 transition duration-300 shadow-md">
+                        <i class="fas fa-arrow-right mr-1"></i> Enroll Now
+                    </button>
+                    <!-- Payment Link - DO NOT CHANGE -->
+                    <a href="https://rzp.io/rzp/VzOzgeE" class="pay-now-btn hidden w-full inline-flex items-center justify-center px-3 py-1.5 text-xs font-semibold rounded-full text-white bg-green-600 hover:bg-green-700 transition duration-300 shadow-md">
+                        <i class="fas fa-money-bill-wave mr-1"></i> Pay Now
+                    </a>
+                </div>
+            </div>
+            <!-- Accordion Header -->
+            <div class="course-header flex justify-between items-center px-3 py-2 cursor-pointer bg-gray-100 text-xs font-semibold hover:bg-gray-200 transition duration-300 border-t border-gray-200" role="button" aria-expanded="false" aria-controls="topics-cpp">
+                <span class="flex items-center text-dark-gray">
+                    <i class="fas fa-list-ul mr-2 text-accent-blue"></i> Syllabus
+                </span>
+                <i class="fas fa-chevron-right text-xs transition-transform duration-300 accordion-icon text-accent-blue"></i>
+            </div>
+            <!-- Accordion Content -->
+            <div id="topics-cpp" class="course-topics bg-white px-3" aria-hidden="true">
+                <ul class="space-y-1 list-none m-0 p-0">
+                    <li class="p-2 border-l-2 border-accent-blue bg-gray-50 rounded-lg shadow-sm text-xs"><a href="#" class="font-medium text-dark-gray hover:text-accent-blue transition">Module 1: C Pointers and Memory</a></li>
+                    <li class="p-2 border-l-2 border-accent-blue bg-gray-50 rounded-lg shadow-sm text-xs"><a href="#" class="font-medium text-dark-gray hover:text-accent-blue transition">Module 2: C++ OOP and STL</a></li>
+                    <li class="p-2 border-l-2 border-accent-blue bg-gray-50 rounded-lg shadow-sm text-xs"><a href="#" class="font-medium text-dark-gray hover:text-accent-blue transition">Module 3: High-Performance</a></li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+    <div class="text-center pt-8 pb-12 text-gray-400 text-sm italic">
+        Building careers on solid foundations.
+    </div>
+</div>
+
+<script>
+    // JavaScript for accordion and button logic (Kept the original logic)
+    const courseCards = document.querySelectorAll(".course");
+
+    courseCards.forEach(card => {
+        const enrollBtn = card.querySelector(".enroll-btn");
+        const payNowBtn = card.querySelector(".pay-now-btn");
+        const header = card.querySelector(".course-header");
+        const topics = card.querySelector(".course-topics");
+        const icon = header.querySelector(".accordion-icon");
+
+        // Enroll Button Click Handler: Switches to Pay Now button
+        enrollBtn.addEventListener("click", (event) => {
+            event.preventDefault();
+            enrollBtn.classList.add('hidden');
+            payNowBtn.classList.remove('hidden');
+        });
+
+        // Accordion Logic: Toggle course syllabus visibility
+        header.addEventListener("click", () => {
+            const isExpanded = header.getAttribute('aria-expanded') === 'true';
+
+            // Collapse all other open accordions (single-open behavior)
+            document.querySelectorAll(".course-header").forEach(otherHeader => {
+                if (otherHeader !== header) {
+                    const otherTopics = otherHeader.nextElementSibling;
+                    const otherIcon = otherHeader.querySelector(".accordion-icon");
+
+                    otherTopics.classList.remove('open');
+                    otherTopics.setAttribute('aria-hidden', 'true');
+                    otherHeader.setAttribute('aria-expanded', 'false');
+                    if(otherIcon) otherIcon.classList.remove('rotate-90');
+                }
+            });
+
+            // Toggle current accordion
+            if (isExpanded) {
+                topics.classList.remove('open');
+                topics.setAttribute('aria-hidden', 'true');
+                header.setAttribute('aria-expanded', 'false');
+                icon.classList.remove('rotate-90');
+            } else {
+                topics.classList.add('open');
+                topics.setAttribute('aria-hidden', 'false');
+                header.setAttribute('aria-expanded', 'true');
+                icon.classList.add('rotate-90');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

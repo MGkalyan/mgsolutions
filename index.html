@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MG Solutions - Empowering Careers</title>
+    <!-- Load Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Load Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <style>
+        /* Configure Tailwind to use Inter font and smooth scroll */
+        :root {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            @apply bg-gray-50 text-gray-800;
+        }
+        /* Custom scroll animation styles (from original request) */
+        section {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        section.show {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        /* Hide desktop nav on mobile/tablet */
+        @media (max-width: 767px) {
+            .top-nav {
+                display: none;
+            }
+            .mobile-nav {
+                display: flex;
+            }
+        }
+        /* Hide mobile nav on desktop/tablet */
+        @media (min-width: 768px) {
+            .mobile-nav {
+                display: none;
+            }
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#14b8a6', /* Teal 500 */
+                        secondary: '#1e3a8a', /* Indigo 800 */
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased">
+
+<!-- HEADER: Sticky, Clean, and Professional -->
+<header class="bg-white shadow-lg sticky top-0 z-50 transition duration-300 ease-in-out">
+    <!-- Base horizontal padding is now px-3 (12px) for smallest screens -->
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            <!-- Logo (Added min-w-0 for robust mobile responsiveness) -->
+            <div class="flex items-center space-x-3 min-w-0">
+                <!-- Using a placeholder for the logo image -->
+                <img src="https://placehold.co/40x40/14b8a6/ffffff?text=MG" alt="MG Solutions Logo" class="h-10 w-10 rounded-lg shadow-md border-2 border-primary" />
+                <!-- Title text size adjusted for smallest mobile screens -->
+                <h1 class="text-lg sm:text-2xl font-extrabold text-secondary tracking-tight truncate">MG Solutions</h1>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav class="top-nav flex items-center space-x-6">
+                <a href="#home" class="text-gray-600 hover:text-primary transition duration-200 font-medium px-3 py-2 rounded-lg">Home</a>
+                <a href="course.html" class="text-gray-600 hover:text-primary transition duration-200 font-medium px-3 py-2 rounded-lg">Courses</a>
+                <a href="#about" class="text-gray-600 hover:text-primary transition duration-200 font-medium px-3 py-2 rounded-lg">About</a>
+                <a href="#contact" class="text-gray-600 hover:text-primary transition duration-200 font-medium px-3 py-2 rounded-lg">Contact</a>
+            </nav>
+
+            <!-- Utility Buttons: Notification Toggle + Login -->
+            <!-- FIX: Removed space-x-2 from parent to manage spacing via individual buttons -->
+            <div class="flex items-center">
+                <!-- Notification Toggle -->
+                <!-- FIX: Reduced right padding (pr-1) on mobile for tighter fit with login icon -->
+                <button id="notification-toggle" class="text-gray-600 hover:text-primary transition duration-200 focus:outline-none p-2 rounded-full hover:bg-gray-100 relative pr-1 sm:pr-2" aria-label="Toggle notifications panel">
+                    <i class="fas fa-bars text-xl"></i>
+                    <!-- Notification indicator badge -->
+                    <span id="notification-badge" class="absolute top-1 right-1 h-2 w-2 bg-red-500 rounded-full border border-white"></span>
+                </button>
+                
+                <!-- Login Button (Desktop) -->
+                <a href="https://mgsolutions-ten.vercel.app/" class="ml-2 px-4 py-2 bg-primary text-white font-semibold rounded-full shadow-lg hover:bg-teal-600 transition duration-300 hidden md:flex items-center space-x-2">
+                    <i class="fas fa-user text-sm"></i>
+                    <span class="text-sm">Login</span>
+                </a>
+                <!-- Mobile Login Icon -->
+                <!-- FIX: Reduced padding (p-1) for a smaller footprint on mobile -->
+                <a href="https://mgsolutions-ten.vercel.app/" class="md:hidden text-gray-600 hover:text-primary transition duration-200 p-1 rounded-full hover:bg-gray-100" aria-label="Login">
+                    <i class="fas fa-user text-xl"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- BANNER / HERO SECTION -->
+<!-- FIX: Applied px-3 on base mobile screens for extra safety -->
+<section id="home" class="banner bg-secondary text-white relative overflow-hidden py-24 sm:py-32 show" role="banner" aria-label="Empowering Careers Banner">
+    <!-- Background Image with Overlay -->
+    <div class="absolute inset-0 z-0">
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1600&q=80"
+             alt="Tech professionals collaborating" class="w-full h-full object-cover opacity-10"
+             onerror="this.src='https://placehold.co/1600x600/1e3a8a/ffffff?text=Background'" />
+    </div>
+
+    <div class="relative max-w-4xl mx-auto text-center px-3 sm:px-4">
+        <h2 class="text-5xl sm:text-6xl font-extrabold mb-4 leading-tight text-white shadow-sm">
+            Empowering Careers with <span class="text-primary">Next-Gen Learning</span> 🚀
+        </h2>
+        <p class="xl sm:text-2xl font-light mb-8 text-gray-200">
+            Industry-focused courses, expert mentorship, and career guidance for a brighter professional future.
+        </p>
+        <!-- ADJUSTMENT: Fluid padding for CTA button -->
+        <a href="course.html" class="inline-flex items-center justify-center px-6 sm:px-8 py-4 border-2 border-primary text-base font-bold rounded-full text-white bg-primary shadow-2xl hover:bg-teal-600 hover:border-teal-600 transition duration-300 transform hover:scale-105">
+            Explore Courses
+            <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+    </div>
+</section>
+
+<!-- ABOUT US -->
+<!-- FIX: Applied px-3 on base mobile screens for extra safety -->
+<section id="about" class="py-20 md:py-28 max-w-7xl mx-auto px-3 sm:px-6 lg:px-8" tabindex="0" aria-labelledby="about-title">
+    <div class="text-center">
+        <h2 id="about-title" class="text-4xl font-extrabold text-secondary mb-4">
+            Our Mission
+        </h2>
+        <div class="h-1 w-20 bg-primary mx-auto mb-12 rounded-full"></div>
+        <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            MG Solutions is a <strong class="text-secondary">premium e-career guidance and learning platform</strong> dedicated to
+            transforming students into skilled professionals. Our curriculum is crafted by industry
+            leaders, combining practical projects, one-on-one mentorship, and robust career support to ensure every
+            learner achieves their professional goals and lands their dream job.
+        </p>
+    </div>
+</section>
+
+<!-- SERVICES / COURSES -->
+<!-- FIX: Applied px-3 on base mobile screens for extra safety -->
+<section id="courses" class="bg-indigo-50 py-20 md:py-28 max-w-full" tabindex="0" aria-labelledby="services-title">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <h2 id="services-title" class="text-4xl font-extrabold text-secondary text-center mb-4">
+            Specialized Career Tracks
+        </h2>
+        <div class="h-1 w-20 bg-primary mx-auto mb-16 rounded-full"></div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8" role="list">
+            <!-- Card 1: Courses -->
+            <article class="service-card bg-white rounded-xl shadow-xl p-6 transition duration-500 hover:shadow-2xl hover:scale-[1.02] cursor-pointer" role="listitem" tabindex="0" aria-label="Career-Oriented Courses">
+                <img src="https://placehold.co/400x250/14b8a6/ffffff?text=Full+Stack+Dev" alt="Web Development course illustration" class="w-full h-40 object-cover rounded-lg mb-6 border-4 border-primary/50" />
+                <h3 class="text-2xl font-bold text-primary mb-3">Career-Oriented Courses</h3>
+                <p class="text-gray-600 text-lg">Master in-demand skills like Full-Stack Web Development, Data Science, Artificial Intelligence, and advanced Python programming.</p>
+                <a href="course.html" class="mt-4 text-secondary font-semibold hover:text-primary block">View Details &rarr;</a>
+            </article>
+
+            <!-- Card 2: Mentorship -->
+            <article class="service-card bg-white rounded-xl shadow-xl p-6 transition duration-500 hover:shadow-2xl hover:scale-[1.02] cursor-pointer" role="listitem" tabindex="0" aria-label="Expert Mentorship">
+                <img src="https://placehold.co/400x250/3b82f6/ffffff?text=Expert+Mentorship" alt="Mentor meeting with a student" class="w-full h-40 object-cover rounded-lg mb-6 border-4 border-primary/50" />
+                <h3 class="text-2xl font-bold text-primary mb-3">Expert Mentorship</h3>
+                <p class="text-gray-600 text-lg">Learn directly from seasoned professionals with extensive corporate experience and receive personalized guidance throughout your journey.</p>
+                <a href="#" class="mt-4 text-secondary font-semibold hover:text-primary block">Meet Our Mentors &rarr;</a>
+            </article>
+
+            <!-- Card 3: Guidance -->
+            <article class="service-card bg-white rounded-xl shadow-xl p-6 transition duration-500 hover:shadow-2xl hover:scale-[1.02] cursor-pointer" role="listitem" tabindex="0" aria-label="Career Guidance">
+                <img src="https://placehold.co/400x250/ef4444/ffffff?text=Career+Guidance" alt="Career path planning" class="w-full h-40 object-cover rounded-lg mb-6 border-4 border-primary/50" />
+                <h3 class="text-2xl font-bold text-primary mb-3">Career Guidance</h3>
+                <p class="text-gray-600 text-lg">Personalized advice for interview preparation, portfolio review, resume building, and securing your first industry role.</p>
+                <a href="#" class="mt-4 text-secondary font-semibold hover:text-primary block">Career Resources &rarr;</a>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<!-- FIX: Applied px-3 on base mobile screens for extra safety -->
+<section class="why-us bg-secondary text-white py-20 md:py-28 max-w-full" tabindex="0" aria-labelledby="whyus-title">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <h2 id="whyus-title" class="text-4xl font-extrabold text-white text-center mb-4">
+            The MG Solutions Advantage
+        </h2>
+        <div class="h-1 w-20 bg-primary mx-auto mb-16 rounded-full"></div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" role="list">
+            <!-- Why Card 1 -->
+            <div class="why-card bg-white/10 p-6 rounded-xl shadow-xl border-t-4 border-primary transition duration-300 hover:bg-white/20" role="listitem" tabindex="0" aria-label="Industry Experts">
+                <i class="fas fa-users text-4xl text-primary mb-4"></i>
+                <h3 class="text-xl font-bold text-white mb-3">Industry Experts</h3>
+                <p class="text-gray-300">Learn directly from professionals who are currently working at top-tier corporate firms.</p>
+            </div>
+            <!-- Why Card 2 -->
+            <div class="why-card bg-white/10 p-6 rounded-xl shadow-xl border-t-4 border-primary transition duration-300 hover:bg-white/20" role="listitem" tabindex="0" aria-label="Practical Learning">
+                <i class="fas fa-laptop-code text-4xl text-primary mb-4"></i>
+                <h3 class="text-xl font-bold text-white mb-3">Practical Learning</h3>
+                <p class="text-gray-300">Curriculum is 80% hands-on projects and real-life case studies, not just theory.</p>
+            </div>
+            <!-- Why Card 3 -->
+            <div class="why-card bg-white/10 p-6 rounded-xl shadow-xl border-t-4 border-primary transition duration-300 hover:bg-white/20" role="listitem" tabindex="0" aria-label="Affordable Pricing">
+                <i class="fas fa-money-bill-wave text-4xl text-primary mb-4"></i>
+                <h3 class="text-xl font-bold text-white mb-3">Affordable Pricing</h3>
+                <p class="text-gray-300">High-quality, job-ready education made accessible with student-friendly pricing models.</p>
+            </div>
+            <!-- Why Card 4 -->
+            <div class="why-card bg-white/10 p-6 rounded-xl shadow-xl border-t-4 border-primary transition duration-300 hover:bg-white/20" role="listitem" tabindex="0" aria-label="Career Support">
+                <i class="fas fa-briefcase text-4xl text-primary mb-4"></i>
+                <h3 class="text-xl font-bold text-white mb-3">Career Support</h3>
+                <p class="text-gray-300">Dedicated assistance for job placements and interview confidence building.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<!-- FIX: Applied px-3 on base mobile screens for extra safety -->
+<section id="contact" class="py-20 md:py-28 max-w-7xl mx-auto px-3 sm:px-6 lg:px-8" tabindex="0" aria-labelledby="contact-title">
+    <!-- ADJUSTMENT: Reduced base padding (p-8 -> p-6) on the contact box for better mobile spacing -->
+    <div class="contact bg-white p-6 sm:p-12 rounded-2xl shadow-2xl max-w-3xl mx-auto border-t-8 border-primary/70 text-center">
+        <h2 id="contact-title" class="text-4xl font-extrabold text-secondary mb-4">
+            Ready to Start Your Journey?
+        </h2>
+        <p class="text-lg text-gray-600 mb-8">
+            Reach out to us today to discuss your career goals and find the perfect course.
+        </p>
+        <!-- FIX: Ensured contact details stack vertically on mobile (flex-col) to prevent horizontal overflow -->
+        <div class="flex flex-col sm:flex-row justify-center items-center text-xl font-medium text-gray-700 mb-6 space-y-2 sm:space-y-0 sm:space-x-6">
+            <span>
+                📧 Email: <a href="mailto:marksolutions0512@gmail.com" class="text-primary hover:underline">marksolutions0512@gmail.com</a>
+            </span>
+            <span class="hidden sm:inline">|</span>
+            <span>
+                📞 <span class="text-secondary font-bold">+91 8500684718</span>
+            </span>
+        </div>
+        <!-- ADJUSTMENT: Fluid padding for CTA button -->
+        <a href="mailto:marksolutions0512@gmail.com" class="inline-flex items-center justify-center px-6 sm:px-8 py-3 border border-transparent text-base font-bold rounded-full text-white bg-primary shadow-xl hover:bg-teal-600 transition duration-300 transform hover:scale-105" aria-label="Get in touch via email">
+            Get in Touch Now
+            <i class="fas fa-envelope ml-2"></i>
+        </a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-gray-900 text-gray-400 text-center py-6 text-sm">
+    <div class="max-w-7xl mx-auto px-4">
+        &copy; 2025 MG Solutions. All rights reserved. Designed for professional excellence.
+    </div>
+</footer>
+
+<!-- MOBILE NAV: Fixed at the bottom -->
+<div class="mobile-nav fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 shadow-2xl h-16 flex justify-around items-center z-50" role="navigation" aria-label="Mobile Navigation">
+    <a href="#home" class="flex flex-col items-center text-xs font-semibold text-primary hover:text-secondary p-2 transition duration-200">
+        <i class="fas fa-home text-xl mb-1" aria-hidden="true"></i>Home
+    </a>
+    <a href="course.html" class="flex flex-col items-center text-xs font-semibold text-gray-500 hover:text-primary p-2 transition duration-200">
+        <i class="fas fa-graduation-cap text-xl mb-1" aria-hidden="true"></i>Courses
+    </a>
+    <a href="#about" class="flex flex-col items-center text-xs font-semibold text-gray-500 hover:text-primary p-2 transition duration-200">
+        <i class="fas fa-info-circle text-xl mb-1" aria-hidden="true"></i>About
+    </a>
+    <a href="#contact" class="flex flex-col items-center text-xs font-semibold text-gray-500 hover:text-primary p-2 transition duration-200">
+        <i class="fas fa-envelope text-xl mb-1" aria-hidden="true"></i>Contact
+    </a>
+</div>
+
+<!-- NOTIFICATION PANEL (Off-Canvas Sidebar) -->
+<div id="notification-panel" class="fixed top-0 right-0 w-80 max-w-full h-full bg-white shadow-2xl z-[5000] transform translate-x-full transition-transform duration-300 overflow-y-auto">
+    <div class="p-6">
+        <div class="flex justify-between items-center pb-4 border-b border-gray-100">
+            <h3 class="text-2xl font-bold text-secondary flex items-center">
+                <i class="fas fa-bell text-primary mr-2"></i> Notifications
+            </h3>
+            <button id="close-notifications" class="text-gray-400 hover:text-gray-800 focus:outline-none p-1 rounded-full hover:bg-gray-50" aria-label="Close notifications panel">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+        </div>
+        
+        <div id="notification-list" class="mt-4 space-y-4">
+            <!-- Sample Notifications -->
+            <div class="p-3 bg-indigo-50 rounded-lg border-l-4 border-primary shadow-sm">
+                <p class="text-sm font-semibold text-primary">New Course Alert!</p>
+                <p class="text-xs text-gray-600">Full-Stack Development batch starts Oct 15th. Limited seats available.</p>
+            </div>
+            <div class="p-3 bg-gray-100 rounded-lg">
+                <p class="text-sm font-semibold text-gray-700">Mentor Q&A Session</p>
+                <p class="text-xs text-gray-600">Live session with Mark scheduled for Friday at 6 PM IST.</p>
+            </div>
+            <div class="p-3 bg-gray-100 rounded-lg">
+                <p class="text-sm font-semibold text-gray-700">Welcome to MG Solutions!</p>
+                <p class="text-xs text-gray-600">Check out the 'About Us' section to learn more about our mission.</p>
+            </div>
+            <p class="text-center text-gray-400 text-sm pt-4">No older notifications.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    // --- Notification Panel Logic ---
+    const toggleButton = document.getElementById('notification-toggle');
+    const closeButton = document.getElementById('close-notifications');
+    const panel = document.getElementById('notification-panel');
+    const badge = document.getElementById('notification-badge');
+
+    const toggleNotifications = () => {
+        const isOpen = panel.classList.contains('translate-x-0');
+        
+        if (isOpen) {
+            // Close panel
+            panel.classList.remove('translate-x-0');
+            panel.classList.add('translate-x-full');
+            // document.body.style.overflow = ''; // Restore scrolling
+        } else {
+            // Open panel
+            panel.classList.remove('translate-x-full');
+            panel.classList.add('translate-x-0');
+            // Hide badge on open (assuming user has seen them)
+            badge.classList.add('hidden');
+            // document.body.style.overflow = 'hidden'; // Prevent main content scrolling
+        }
+    };
+
+    toggleButton.addEventListener('click', toggleNotifications);
+    closeButton.addEventListener('click', toggleNotifications);
+
+    // Close when clicking outside the panel or the toggle button
+    document.addEventListener('click', (e) => {
+        if (!panel.contains(e.target) && !toggleButton.contains(e.target) && panel.classList.contains('translate-x-0')) {
+            toggleNotifications();
+        }
+    });
+
+
+    // --- Scroll animations for sections (Original Logic) ---
+    const sections = document.querySelectorAll('section');
+    const checkScroll = () => {
+        sections.forEach(sec => {
+            const rect = sec.getBoundingClientRect();
+            // Check if the section is within the visible viewport range (top 90% of the screen)
+            if (rect.top < window.innerHeight - 100) {
+                sec.classList.add('show');
+            }
+        });
+    };
+
+    // Initial check on load
+    window.addEventListener('load', checkScroll);
+    // Continuous check on scroll
+    window.addEventListener('scroll', checkScroll);
+</script>
+
+</body>
+</html>
